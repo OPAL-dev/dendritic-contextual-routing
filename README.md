@@ -156,7 +156,7 @@ paper/figures/
 
 This project was developed under **OPAL-dev / OPAL.inc** as an independent research exploration on contextual routing, continual learning, and dendritic-inspired architectures.
 
-Main research and implementation: **Yifit / OPAL-dev**.
+Main research and implementation: **MantHalo / OPAL-dev**.
 
 Experimental design and analysis were assisted by multiple AI systems and cross-checked through iterative review.
 
