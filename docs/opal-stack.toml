@@ -1,0 +1,33 @@
+[component]
+schema = 1
+name = "dendritic-contextual-routing"
+kind = "python-research-repo"
+role = "continual-learning-research"
+owner = "OPAL-dev"
+status = "research-only"
+risk = "low"
+repository = "https://github.com/OPAL-dev/dendritic-contextual-routing"
+public_contract = "Reproducibility package for dendritic-inspired contextual routing, affine modulation, and micro-replay experiments."
+
+required_permissions = ["filesystem.read", "filesystem.write"]
+approval_policy = ["research_result_publication_requires_review"]
+rollback_strategy = ["restore_previous_configs_and_results_snapshot"]
+memory_tags = ["research", "routing", "continual_learning"]
+
+[[capabilities]]
+id = "research.dcr.reproduce"
+risk = "local_write"
+description = "Reproduce contextual-routing experiments and regenerate benchmark results."
+
+[[health_gates]]
+id = "dcr.layout.present"
+kind = "filesystem"
+target = "README.md + src/ + scripts/ + configs/ + results/ + paper/ present"
+risk = "read_only"
+expected = "all_required_paths_exist"
+
+[[repair_actions]]
+id = "refresh.dcr.artifacts"
+risk = "local_write"
+description = "Refresh experiment artifacts and rerun the reproducibility scripts after config changes."
+verifies_with = ["dcr.layout.present"]
